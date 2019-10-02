@@ -27,10 +27,10 @@
     "postcoverage": "opn coverage/index.html",
     "validate": "yarn lint && yarn test",
     "docs": "apidoc -i src/server -o docs",
-    "db:migrate": "npx sequelize-cli db:migrate --config src/server/config/sequelizeOptions.json",
-    "db:migrate:undo": "npx sequelize-cli db:migrate:undo:all --config src/server/config/sequelizeOptions.json",
-    "db:seed": "npx sequelize-cli db:seed:all --config src/server/config/sequelizeOptions.json",
-    "db:seed:undo": "npx sequelize-cli db:seed:undo:all --config src/server/config/sequelizeOptions.json"
+    "db:migrate": "sequelize db:migrate --config src/server/config/sequelizeOptions.json",
+    "db:migrate:undo": "sequelize db:migrate:undo:all --config src/server/config/sequelizeOptions.json",
+    "db:seed": "sequelize db:seed:all --config src/server/config/sequelizeOptions.json",
+    "db:seed:undo": "sequelize db:seed:undo:all --config src/server/config/sequelizeOptions.json"
   },
   "repository": {
     "type": "git",
