@@ -53,7 +53,7 @@ function getGeneratedWeathersForEveryHourOfSpecialDay(dayOfWeather, city) {
 }
 
 module.exports = {
-  up: async queryInterface => new Promise(async (resolve, reject) => {
+  up: async queryInterface => new Promise(async (resolve) => {
     const CITIES = ['Moscow', 'Saint-Petersburg'];
 
     CITIES.map(async (city, i, arr) => {
