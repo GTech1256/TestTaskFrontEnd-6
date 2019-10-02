@@ -1,0 +1,26 @@
+{
+  "development": {
+    "username": "tjaesare",
+    "password": "M1sFC09Xylk6RTOuD72xyh-g3xiiKMcL",
+    "database": "tjaesare",
+    "host": "balarama.db.elephantsql.com",
+    "port": "5432",
+    "dialect": "postgres"
+  },
+  "test": {
+    "username": "tjaesare",
+    "password": "M1sFC09Xylk6RTOuD72xyh-g3xiiKMcL",
+    "database": "tjaesare",
+    "host": "balarama.db.elephantsql.com",
+    "port": "5432",
+    "dialect": "postgres"
+  },
+  "production": {
+    "username": "tjaesare",
+    "password": "M1sFC09Xylk6RTOuD72xyh-g3xiiKMcL",
+    "database": "tjaesare",
+    "host": "balarama.db.elephantsql.com",
+    "port": "5432",
+    "dialect": "postgres"
+  }
+}
