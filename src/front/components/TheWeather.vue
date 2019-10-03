@@ -21,7 +21,7 @@ export default class TheWeather extends Vue {
 
   @Prop() private options!: {};
 
-  @Prop() private labels!: {};
+  @Prop() private labels!: string[];
 
     @Ref('myChart') readonly chartCanvas!: HTMLCanvasElement
 
