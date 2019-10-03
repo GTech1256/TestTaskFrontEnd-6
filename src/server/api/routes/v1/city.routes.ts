@@ -17,8 +17,8 @@ export default router
    *
    * @apiError (Bad Request 400)   ValidationError  Some parameters may contain invalid values
    */
-  .get('/', controller.getAll)
-  
+  .get('/', controller.getTodayFiveCities)
+
 /*
 router
   .route('/:id')

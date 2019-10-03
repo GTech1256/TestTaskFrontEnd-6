@@ -14,9 +14,9 @@ interface ResponseError extends Error {
  * @public
  */
 export const handler = (
-  err: ResponseError, 
-  req: Request, 
-  res: Response
+  err: ResponseError,
+  req: Request,
+  res: Response,
 ) => {
   const response = {
     code: err.status,
@@ -38,14 +38,14 @@ export const handler = (
  * @public
  */
 export const converter = (
-  err: ResponseError, 
-  req: Request, 
-  res: Response
+  err: ResponseError,
+  req: Request,
+  res: Response,
 ) => {
   let convertedError = err;
 
   if (err instanceof expressValidation.ValidationError) {
-    console.log('valdation', err.status)
+    console.log('valdation', err.status);
     convertedError = new APIError({
       message: 'Validation Error',
       errors: err.errors,
@@ -54,13 +54,13 @@ export const converter = (
       name: 'ValidationError',
     });
   } else if (!(err instanceof APIError)) {
-    console.log('Api', err.status)
+    console.log('Api', err.status);
     convertedError = new APIError({
       message: err.message,
       status: err.status,
       stack: err.stack,
       errors: err.errors || [],
-      name: 'APIError'
+      name: 'APIError',
     });
   }
 
@@ -72,14 +72,14 @@ export const converter = (
  * @public
  */
 export const notFound = (
-  req: Request, 
+  req: Request,
   res: Response,
 ) => {
   const err = new APIError({
     message: 'Not found',
     status: httpStatus.NOT_FOUND,
     name: 'APIError',
-    errors: []
+    errors: [],
   });
 
   return handler(err, req, res);

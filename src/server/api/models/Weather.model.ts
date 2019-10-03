@@ -1,9 +1,11 @@
-import {Column, CreatedAt, Model, Table, UpdatedAt} from 'sequelize-typescript';
+
+import {
+  Column, CreatedAt, Model, Table, UpdatedAt,
+} from 'sequelize-typescript';
 // WeatherModel
 // WeatherModels
 @Table
 export default class Weather extends Model<Weather> {
-
   @Column
   city!: string;
 
@@ -11,9 +13,11 @@ export default class Weather extends Model<Weather> {
   timestamp!: string;
 
   @Column
+    // eslint-disable-next-line camelcase
   temperature_unit!: string;
 
   @Column
+    // eslint-disable-next-line camelcase
   temperature_value!: number;
 
   @CreatedAt

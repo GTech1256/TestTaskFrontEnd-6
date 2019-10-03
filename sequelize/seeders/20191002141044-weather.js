@@ -34,13 +34,16 @@ const smoothRandomRelativeNumber = number => () => {
 function getGeneratedWeathersForEveryHourOfSpecialDay(dayOfWeather, city) {
   const weathers = [];
 
-  const localDay = new Date(dayOfWeather.setHours(0, 0, 0, 0));
+  const localDay = new Date(dayOfWeather.setHours(3, 0, 0, 0));
   const smoothRamdomValue = smoothRandomRelativeNumber(randomIntFromInterval(-30, 30));
 
   for (let i = 0; i < COUNT_OF_WEATHER_DATA; i++) {
+    const weatherDate = new Date(localDay);
+    // 3 часовой сдвиг сервера базы данных
+    weatherDate.setHours(i + 3);
     weathers.push({
       city,
-      timestamp: new Date(localDay),
+      timestamp: weatherDate,
       temperature_value: smoothRamdomValue(),
       createdAt: new Date(),
       updatedAt: new Date(),
@@ -52,19 +55,41 @@ function getGeneratedWeathersForEveryHourOfSpecialDay(dayOfWeather, city) {
   return weathers;
 }
 
+/*
+* @param {number} coundOfDays
+* @param {Date} currentDay
+* @param {string} city
+* @return weather[]
+* */
+function getManyNextDaysOfWeayjers(coundOfDays, currentDay, city) {
+  let generated = [];
+
+  for (let i = 0; i < coundOfDays; i++) {
+    generated = [
+      ...generated,
+      ...getGeneratedWeathersForEveryHourOfSpecialDay(
+        new Date(currentDay.getTime() + i * 24 * 60 * 60 * 1000),
+        city,
+      ),
+    ];
+  }
+
+  return generated;
+}
+
 module.exports = {
   up: async queryInterface => new Promise(async (resolve) => {
     const CITIES = ['Moscow', 'Saint-Petersburg'];
 
     CITIES.map(async (city, i, arr) => {
       const today = new Date();
-      const tomorrow = new Date();
+      // const tomorrow = new Date();
 
-      tomorrow.setDate(today.getDate() + i);
+      // tomorrow.setDate(today.getDate() + i);
 
       await queryInterface.bulkInsert(
         'Weather',
-        getGeneratedWeathersForEveryHourOfSpecialDay(tomorrow, city),
+        getManyNextDaysOfWeayjers(5, today, city),
       );
 
 

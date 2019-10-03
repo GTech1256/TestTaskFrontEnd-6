@@ -2,6 +2,9 @@
   "extends": "./tsconfig.json",
   "include": [
     "src/server/**/*.ts"
-  ]
-  
+  ],
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "es6"
+  }
 }
