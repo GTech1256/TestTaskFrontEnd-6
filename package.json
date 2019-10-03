@@ -38,7 +38,7 @@
     "db:seed": "sequelize db:seed:all --config src/server/config/sequelizeOptions.json",
     "db:seed:undo": "sequelize db:seed:undo:all --config src/server/config/sequelizeOptions.json",
     "build": "yarn build:front && yarn build:server",
-    "start": "yarn build && start:server"
+    "start": "start:server"
   },
   "repository": {
     "type": "git",
