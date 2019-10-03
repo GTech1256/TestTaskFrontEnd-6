@@ -14,7 +14,7 @@
       <b>Ошибка.</b> подробнее в консоли
     </div>
     <div class="index__main" v-else>
-      <TheWeather :datasets="datasets" :labels="[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24]" :options="options" />
+      <TheWeather :datasets="datasets" :labels="labels" :options="options" />
     </div>
   </div>
 </template>
@@ -56,7 +56,7 @@ export default class IndexView extends Vue {
 
     isError: boolean = false;
 
-    weather: Record<string, {data: Weather[] }> = {};
+    weather: Record<string, {data: number[] }> = {};
 
     options: Object = options;
 
@@ -66,21 +66,53 @@ export default class IndexView extends Vue {
         .then(({ data }) => {
           this.weather = data;
           this.isLoaded = true;
-          console.log(this.weather);
         })
         .catch((e) => {
           this.isError = true;
           this.isLoaded = true;
-          console.log(e);
         });
     }
 
     get datasets() {
       // const res = { ...this.weather };
-      return Object.keys(this.weather).map(cityName => ({
+      return this.weatherKeys.map(cityName => ({
         label: cityName,
         data: this.weather[cityName].data,
       }));
+    }
+
+    get weatherKeys() {
+      return Object.keys(this.weather);
+    }
+
+    // eslint-disable-next-line class-methods-use-this
+    get labels() {
+      return [
+        '1 час',
+        '2 час',
+        '3 час',
+        '4 час',
+        '5 час',
+        '6 час',
+        '7 час',
+        '8 час',
+        '9 час',
+        '10 час',
+        '11 час',
+        '12 час',
+        '13 час',
+        '14 час',
+        '15 час',
+        '16 час',
+        '17 час',
+        '18 час',
+        '19 час',
+        '20 час',
+        '21 час',
+        '22 час',
+        '23 час',
+        '24 час',
+      ];
     }
 }
 </script>
