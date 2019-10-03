@@ -19,7 +19,6 @@
     "build:server": "tsc -p tsconfig.server.build.json",
     "serve:server": "nodemon -e ts -w ./src/server --exec \"yarn build:server && node dist/server/index \"",
     "precommit": "yarn lint",
-    "start:server": "cross-env NODE_ENV=production node ./dist/server/index.js",
     "dev:server": "yarn watch",
     "lint": "eslint ./src/ --ignore-path .gitignore --ignore-pattern internals/scripts",
     "lint:fix": "yarn lint --fix",
@@ -38,7 +37,7 @@
     "db:seed": "sequelize db:seed:all --config src/server/config/sequelizeOptions.json",
     "db:seed:undo": "sequelize db:seed:undo:all --config src/server/config/sequelizeOptions.json",
     "build": "yarn build:front && yarn build:server",
-    "start": "start:server"
+    "start": "cross-env NODE_ENV=production node ./dist/server/index.js"
   },
   "repository": {
     "type": "git",
