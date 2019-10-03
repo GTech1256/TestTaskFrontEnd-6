@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
-    "module": "commonjs",
-    "target": "es6",
+    "module": "esnext",
+    "target": "esnext",
     "baseUrl": ".",
     "outDir": "dist",
     "rootDir": "src",
@@ -17,11 +17,12 @@
     "sourceMap": true,
     "resolveJsonModule": true,
     "types": [
+      "webpack-env",
       "jest"
     ],
     "paths": {
       "@/*": [
-        "src/*"
+        "src/front/*"
       ]
     },
     "lib": [

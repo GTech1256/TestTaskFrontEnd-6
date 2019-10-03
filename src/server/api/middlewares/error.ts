@@ -45,6 +45,7 @@ export const converter = (
   let convertedError = err;
 
   if (err instanceof expressValidation.ValidationError) {
+    console.log('valdation', err.status)
     convertedError = new APIError({
       message: 'Validation Error',
       errors: err.errors,
@@ -53,6 +54,7 @@ export const converter = (
       name: 'ValidationError',
     });
   } else if (!(err instanceof APIError)) {
+    console.log('Api', err.status)
     convertedError = new APIError({
       message: err.message,
       status: err.status,

@@ -47,16 +47,16 @@ passport.use('google', strategies.google);
 */
 
 // mount api v1 routes
-app.use(express.static('public'));
+app.use(express.static('dist/front'));
 app.use('/api/v1', routes);
 app.use(/\/((?!api).)*/, express.static('public/index.html'));
 
+// catch 404 and forward to error handler
+app.use(notFound);
 
 // if error is not an instanceOf APIError, convert it.
 app.use(converter);
 
-// catch 404 and forward to error handler
-app.use(notFound);
 
 // error handler, send stacktrace only during development
 app.use(handler);

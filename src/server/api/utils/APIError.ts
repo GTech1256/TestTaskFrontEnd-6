@@ -20,7 +20,8 @@ class ExtendableError extends Error {
     isPublic?: boolean
   }) {
     super(message);
-    this.name = this.constructor.name;
+    
+    this.name = name;
     this.message = message;
     this.errors = errors;
     this.status = status;
@@ -45,7 +46,7 @@ export default class APIError extends ExtendableError {
     message,
     errors,
     stack,
-    status = httpStatus.INTERNAL_SERVER_ERROR,
+    status,
     isPublic,
   }: Error & {
     errors: string[],
@@ -56,10 +57,10 @@ export default class APIError extends ExtendableError {
     super({
       message, 
       errors, 
-      status, 
+      status: status || httpStatus.INTERNAL_SERVER_ERROR, 
       isPublic, 
       stack,
-      name: name || 'APIError'
+      name
     });
   }
 }

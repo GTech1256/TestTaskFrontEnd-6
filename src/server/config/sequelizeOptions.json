@@ -1,8 +1,8 @@
 {
   "development": {
-    "username": "tjaesare",
-    "password": "M1sFC09Xylk6RTOuD72xyh-g3xiiKMcL",
-    "database": "tjaesare",
+    "username": "drqtqlsg",
+    "password": "nq-xJQbx2rjM3R6tvNMCAt0vYBSGzzPB",
+    "database": "drqtqlsg",
     "host": "balarama.db.elephantsql.com",
     "port": "5432",
     "dialect": "postgres"
