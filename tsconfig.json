@@ -14,7 +14,7 @@
     "emitDecoratorMetadata": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
-    "sourceMap": true,
+    "sourceMap": false,
     "resolveJsonModule": true,
     "types": [
       "webpack-env",
