@@ -24,6 +24,7 @@ jobs:
       script:
         - yarn build
       deploy:
+        language: node_js
         skip_cleanup: true
         provider: heroku
         app: TestTaskFrontEnd-6
