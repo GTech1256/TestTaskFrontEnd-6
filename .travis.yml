@@ -1,3 +1,7 @@
+language: node_js
+node_js:
+  - "8"
+
 stages:
   - code-quality
 
@@ -6,7 +10,7 @@ jobs:
     - stage: code-quality
       language: node_js
       node_js:
-        - "10"
+        - "8"
       cache:
         yarn: true
         directories:
@@ -16,7 +20,7 @@ jobs:
     - stage: deploy
       language: node_js
       node_js:
-        - "10"
+        - "8"
       cache:
         yarn: true
         directories:
@@ -25,6 +29,8 @@ jobs:
         - yarn build
       deploy:
         language: node_js
+        node_js:
+          - "8"
         skip_cleanup: true
         provider: heroku
         app: TestTaskFrontEnd-6
