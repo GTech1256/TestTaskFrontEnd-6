@@ -11,9 +11,8 @@ jobs:
       node_js:
         - "10"
       cache:
+        yarn: true
         directories:
-          - $HOME/.npm
-      before_script:
-        - npm install
+          - node_modules
       script:
-        - npm run lint
+        - yarn run lint
