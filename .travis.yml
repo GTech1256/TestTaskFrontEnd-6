@@ -33,7 +33,7 @@ jobs:
           - "8"
         skip_cleanup: true
         provider: heroku
-        app: TestTaskFrontEnd-6
+        app: travistestb
         api_key: $HEROKU_AUTH_TOKEN
         on:
           repo: GTech1256/TestTaskFrontEnd-6
