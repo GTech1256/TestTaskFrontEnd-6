@@ -1,8 +1,5 @@
 stages:
   - code-quality
-  - testing
-  - build
-  - deploy
 
 jobs:
   include:
