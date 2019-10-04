@@ -5,7 +5,7 @@
 </template>
 
 <script lang="ts">
-    import Chart, {ChartDataSets} from 'chart.js';
+import Chart, { ChartDataSets } from 'chart.js';
 import {
   Component,
   Prop,
