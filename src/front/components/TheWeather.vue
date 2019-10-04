@@ -5,7 +5,7 @@
 </template>
 
 <script lang="ts">
-import Chart from 'chart.js';
+    import Chart, {ChartDataSets} from 'chart.js';
 import {
   Component,
   Prop,
@@ -31,9 +31,10 @@ export default class TheWeather extends Vue {
     // The canvas's height.
     width: number = 200;
 
+    chart: any;
 
     @Watch('datasets')
-    onDatasetChange(newDatasets: Object, oldVal: Object) {
+    onDatasetChange(newDatasets: ChartDataSets[], oldVal: ChartDataSets[]) {
       // Replace the datasets and call the update() method on Chart.js
       // instance to re-render the chart.
       this.chart.data.datasets = newDatasets;
