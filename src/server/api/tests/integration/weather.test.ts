@@ -42,7 +42,7 @@ describe('Conversion api', async () => {
       .get('/api/v1/weather')
       .then((res) => {
         expect(res).not.toBeNull();
-        console.log(res);
+
         if (!res) {
           throw new Error('Weather null');
         }

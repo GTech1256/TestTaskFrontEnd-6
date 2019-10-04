@@ -9,7 +9,6 @@ import Weather from '../models/Weather.model';
 export default {
   async getTodayFiveCities(req: Request, res: Response, next: NextFunction) {
     try {
-
       const normalizeWeatherData: Record<string, { data: number[] } > = { };
 
       const startDay = new Date();
@@ -17,7 +16,7 @@ export default {
       // 3 часовой сдвиг сервера базы данных
       startDay.setHours(3, 0, 0, 0);
       endDay.setHours(26, 0, 0, 0);
-      console.log(startDay, endDay, startDay === endDay)
+
       const weathers = await Weather.findAll({
         where: {
           timestamp: { [Op.between]: [startDay, endDay] },
@@ -25,6 +24,7 @@ export default {
       });
 
 
+      // eslint-disable-next-line no-restricted-syntax
       for (const weather of weathers) {
         if (normalizeWeatherData[weather.city]) {
           normalizeWeatherData[weather.city].data.push(weather.temperature_value);

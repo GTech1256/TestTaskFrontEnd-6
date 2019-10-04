@@ -37,3 +37,6 @@ jobs:
         api_key: $HEROKU_AUTH_TOKEN
         on:
           repo: GTech1256/TestTaskFrontEnd-6
+        after_deploy:
+          - npm i
+          - npm run start

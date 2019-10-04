@@ -31,7 +31,6 @@ export default class TheWeather extends Vue {
     // The canvas's height.
     width: number = 200;
 
-    chart: any
 
     @Watch('datasets')
     onDatasetChange(newDatasets: Object, oldVal: Object) {
@@ -56,7 +55,7 @@ export default class TheWeather extends Vue {
 
     beforeDestroy() {
       if (this.chart) {
-        (this).chart.destroy();
+        this.chart.destroy();
       }
     }
 }
